@@ -4,7 +4,6 @@
 	import Hero from 'components/Hero/Hero.svelte';
 	import Page from 'components/Page.svelte';
 	import Footer from 'components/Footer.svelte';
-	import Mascot from 'components/Mascot.svelte';
 	import Heading from 'components/Heading.svelte';
 
 	import { page } from '$app/state';
@@ -25,20 +24,24 @@
 		<Hero>
 			<Stack direction="column" spacing="m" fullHeight justify="center">
 				<Stack spacing="m" direction="column" directionDesktop="row">
-					<Stack shrink={4}>
-						<Mascot shadow={false} glow={true} />
+					<Stack shrink={0}>
+						<img
+							src="/images/LibreLingoRelive_transparent.png"
+							alt="LibreLingo"
+							class="home-logo"
+						/>
 					</Stack>
-					<Stack direction="column" justify="center" shrink={2}>
+					<Stack direction="column" justify="center">
 						<Heading level={1}>
-							an experiment to create a community-driven language-learning platform
+							<span>a community-driven</span>
+							<br />
+							<span>language-learning platform</span>
 						</Heading>
 					</Stack>
 				</Stack>
 
 				<Stack spacing="m" direction="column">
-					<!-- For each courses available locally.. -->
 					{#if coursesFs}
-						<h3 style="text-align:center">Courses available locally</h3>
 						{#each coursesFs as course (course.path)}
 							<Stack justify="center">
 								<Button style="primary" size="large" href={`/course/${course.path}`}>
@@ -53,3 +56,14 @@
 		<Footer />
 	</Page>
 </main>
+
+<style>
+	.home-logo {
+		display: block;
+		width: 280px;
+		max-width: 100%;
+		max-height: 360px;
+		flex-shrink: 0;
+		object-fit: contain;
+	}
+</style>
