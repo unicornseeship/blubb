@@ -4,6 +4,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "npm run dev -w web",
+		"postinstall": "node scripts/patchBulmaSass.js",
 		"format": "eslint . --fix --max-warnings=0 && prettier --write apps/**/*.svelte docs --ignore-path ./.prettierignore_for_svelte",
 		"lint": "eslint . --max-warnings=0 && prettier --check apps/**/*.svelte docs --ignore-path ./.prettierignore_for_svelte",
 		"exportAllCourses": "./scripts/exportAllYamlCourses.sh",
